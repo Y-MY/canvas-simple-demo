@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图形组合</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext('2d');
+            var oprtns = new Array(
+                "source-atop",
+                "source-in",
+                "source-out",
+                "source-over",
+                "destination-atop",
+                "destination-in ",
+                "destination-out",
+                "destination-over",
+                "lighter",
+                "copy", 
+                "xor"
+            );
+            var i = 8;
+            context.fillStyle="blue";
+            context.fillRect(10,10,60,60);
+            context.globalCompositeOperation=oprtns[i];
+            context.beginPath();
+            context.fillStyle = "red";
+            context.arc(60,60,30,Math.PI*2,false);
+            context.fill();
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="500px" height="500px"></canvas>
+</body>
+
+</html>

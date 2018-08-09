@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>使用line to 绘制圆形</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas == null) {
+                return false;
+            }
+            var context = canvas.getContext('2d');
+            context.fillStyle = "#eeeeef";
+            context.fillRect(0, 0, 300, 400);
+            var dx = 150, dy = 150, s = 100;
+            context.beginPath();
+            context.fillStyle = "rgb(100,255,100)";
+            context.strokeStyle = "rgb(0,0,100)";
+            var dig = Math.PI / 15 * 11;
+            for (var i = 0; i < 30; i++) {
+                var x = Math.sin(i * dig), y = Math.cos(i * dig);
+                context.lineTo(dx + x * s, dy + y * s);
+            }
+            context.closePath();
+            context.fill();
+            context.stroke();
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="300px" height="400px"></canvas>
+</body>
+
+</html>
